@@ -1,6 +1,8 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
+import 'package:musidroid/screens/playlist.dart';
 
 class Musify extends StatefulWidget {
   @override
@@ -8,6 +10,7 @@ class Musify extends StatefulWidget {
 }
 
 class _MusifyState extends State<Musify> {
+  bool Switchval=false;
   int _selectedIndex = 0;
   var images = [
     NetworkImage(
@@ -21,7 +24,6 @@ class _MusifyState extends State<Musify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: ListView(
         children: [
           Center(
@@ -30,6 +32,20 @@ class _MusifyState extends State<Musify> {
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.pink.shade100))),
+                      Switch(onChanged: (bool value){
+                        setState(() {
+                          this.Switchval=value;
+                        });
+                        if(Switchval==false){
+                          AdaptiveTheme.of(context).setLight();
+                        }else{
+                          AdaptiveTheme.of(context).setDark();
+                        }
+                      },value: this.Switchval),
+                      ElevatedButton(onPressed: (){
+                        Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => Music()));
+                      }, child: Text('dara')),
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Text('Suggested playlists',

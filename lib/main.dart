@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:musidroid/demo.dart';
-import 'package:musidroid/screens/Musihome.dart';
 
 void main() {
   runApp(MaterialApp(useInheritedMediaQuery: true,

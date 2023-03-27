@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:musidroid/screens/Musihome.dart';
-class Darkmode extends StatelessWidget {
 
+class Darkmode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
@@ -18,6 +18,7 @@ class Darkmode extends StatelessWidget {
       ),
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: theme,
         darkTheme: darkTheme,
         home: Musify(),

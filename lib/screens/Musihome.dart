@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:musidroid/screens/playlist.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Musify extends StatefulWidget {
   @override
@@ -26,8 +27,11 @@ class _MusifyState extends State<Musify> {
     return Scaffold(
       body: ListView(
         children: [
+          ElevatedButton(onPressed: ()async{
+              context.locale=Locale('en','GB');
+                      }, child: Text('dara')),
           Center(
-              child: Text('Musify.',
+              child: Text('Musify.'.tr().toString().toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -48,7 +52,7 @@ class _MusifyState extends State<Musify> {
                       }, child: Text('dara')),
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
-            child: Text('Suggested playlists',
+            child: Text('Suggested playlists'.tr().toString(),
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -78,7 +82,7 @@ class _MusifyState extends State<Musify> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
-            child: Text('Recommended for you',
+            child: Text('Recommended for you'.tr().toString(),
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

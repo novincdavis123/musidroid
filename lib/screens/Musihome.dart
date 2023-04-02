@@ -11,7 +11,7 @@ class Musify extends StatefulWidget {
 }
 
 class _MusifyState extends State<Musify> {
-  bool Switchval=false;
+  bool Switchval = false;
   int _selectedIndex = 0;
   var images = [
     NetworkImage(
@@ -27,29 +27,38 @@ class _MusifyState extends State<Musify> {
     return Scaffold(
       body: ListView(
         children: [
-          ElevatedButton(onPressed: ()async{
-              context.locale=Locale('en','GB');
-                      }, child: Text('dara')),
+          ElevatedButton(
+              onLongPress: () async {
+                context.locale = Locale('en', 'HI');
+              },
+              onPressed: () async {
+                context.locale = Locale('en', 'GB');
+              },
+              child: Text('dara')),
           Center(
               child: Text('Musify.'.tr().toString().toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.pink.shade100))),
-                      Switch(onChanged: (bool value){
-                        setState(() {
-                          this.Switchval=value;
-                        });
-                        if(Switchval==false){
-                          AdaptiveTheme.of(context).setLight();
-                        }else{
-                          AdaptiveTheme.of(context).setDark();
-                        }
-                      },value: this.Switchval),
-                      ElevatedButton(onPressed: (){
-                        Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => Music()));
-                      }, child: Text('dara')),
+          Switch(
+              onChanged: (bool value) {
+                setState(() {
+                  this.Switchval = value;
+                });
+                if (Switchval == false) {
+                  AdaptiveTheme.of(context).setLight();
+                } else {
+                  AdaptiveTheme.of(context).setDark();
+                }
+              },
+              value: this.Switchval),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Music()));
+              },
+              child: Text('dara')),
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 10),
             child: Text('Suggested playlists'.tr().toString(),
